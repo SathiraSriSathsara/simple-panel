@@ -28,6 +28,7 @@ $available_pages = [
     'nodeapps',
     'revproxy',
     'docker',
+    'status',
     'databases',
     'domains',
     'ssl',
@@ -59,6 +60,11 @@ $page_config = [
     'docker' => [
         'title' => 'Docker',
         'icon' => 'fab fa-docker',
+        'badge' => ''
+    ],
+    'status' => [
+        'title' => 'Status',
+        'icon' => 'fas fa-heartbeat',
         'badge' => ''
     ],
     'databases' => [
