@@ -40,6 +40,13 @@
             </a>
         </li>
 
+        <li class="nav-item <?php echo ($current_page === 'docker') ? 'active' : ''; ?>">
+            <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'docker'])); ?>">
+                <i class="fab fa-docker"></i>
+                <span><?php echo htmlspecialchars(t('Docker')); ?></span>
+            </a>
+        </li>
+
         <div class="nav-section-label" style="margin-top:12px;"><?php echo htmlspecialchars(t('System')); ?></div>
 
         <li class="nav-item <?php echo ($current_page === 'databases') ? 'active' : ''; ?>">

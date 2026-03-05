@@ -27,6 +27,7 @@ $available_pages = [
     'websites',
     'nodeapps',
     'revproxy',
+    'docker',
     'databases',
     'domains',
     'ssl',
@@ -54,6 +55,11 @@ $page_config = [
         'title' => 'Reverse Proxy',
         'icon' => 'fas fa-random',
         'badge' => '7'
+    ],
+    'docker' => [
+        'title' => 'Docker',
+        'icon' => 'fab fa-docker',
+        'badge' => ''
     ],
     'databases' => [
         'title' => 'Databases',
