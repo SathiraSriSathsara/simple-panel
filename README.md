@@ -8,7 +8,8 @@
 
 ---
 
-> **Note:** This Project is still under development. You can also contribute to this project.
+> [!WARNING]
+> This Project is still under development. You can also contribute to this project.
 
 
 <img src="./assets/images/screenshot.png" alt="screenshot">
