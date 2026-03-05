@@ -15,6 +15,9 @@ define('INCLUDES_PATH', BASE_PATH . '/includes');
 define('BASE_URL', '/');
 define('ASSETS_URL', BASE_URL . 'assets/');
 
+require_once __DIR__ . '/i18n.php';
+$current_language = get_current_language();
+
 // Default page
 define('DEFAULT_PAGE', 'websites');
 
@@ -31,32 +34,32 @@ $available_pages = [
 // Page configurations
 $page_config = [
     'websites' => [
-        'title' => 'Websites',
+        'title_key' => 'pages.websites.title',
         'icon' => 'fas fa-folder-open',
         'badge' => '12'
     ],
     'nodeapps' => [
-        'title' => 'Node apps',
+        'title_key' => 'pages.nodeapps.title',
         'icon' => 'fab fa-node',
         'badge' => '4'
     ],
     'revproxy' => [
-        'title' => 'Reverse proxy',
+        'title_key' => 'pages.revproxy.title',
         'icon' => 'fas fa-arrows-spin',
         'badge' => '7'
     ],
     'databases' => [
-        'title' => 'Databases',
+        'title_key' => 'pages.databases.title',
         'icon' => 'fas fa-database',
         'badge' => '3'
     ],
     'domains' => [
-        'title' => 'Domains',
+        'title_key' => 'pages.domains.title',
         'icon' => 'fas fa-tag',
         'badge' => '9'
     ],
     'ssl' => [
-        'title' => 'SSL/TLS',
+        'title_key' => 'pages.ssl.title',
         'icon' => 'fas fa-lock',
         'badge' => '6'
     ]

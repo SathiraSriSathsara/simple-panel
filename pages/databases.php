@@ -1,25 +1,19 @@
 <?php
-// Databases page
 require_once COMPONENTS_PATH . '/stat-card.php';
-
-$page_title = 'Databases';
-$page_icon = 'fas fa-database';
 ?>
 
-<!-- Stats Grid -->
 <div class="stats-grid">
     <?php
-    render_stat_card('fas fa-database', 'Total databases', '3');
-    render_stat_card('fas fa-table', 'Tables', '47');
-    render_stat_card('fas fa-hdd', 'Storage used', '2.4 GB');
-    render_stat_card('fas fa-users', 'DB users', '5');
+    render_stat_card('fas fa-database', t('pages.databases.stat_total'), '3');
+    render_stat_card('fas fa-table', t('pages.databases.stat_tables'), '47');
+    render_stat_card('fas fa-hdd', t('pages.databases.stat_storage'), '2.4 GB');
+    render_stat_card('fas fa-users', t('pages.databases.stat_users'), '5');
     ?>
 </div>
 
-<!-- Content Card -->
 <div class="content-placeholder">
-    <h3><i class="fas fa-database" style="margin-right:10px;"></i>database management</h3>
-    <p>MySQL, PostgreSQL, and MongoDB instances. Manage users, backups, and access control.</p>
+    <h3><i class="fas fa-database" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('pages.databases.overview_title')); ?></h3>
+    <p><?php echo htmlspecialchars(t('pages.databases.overview_text')); ?></p>
     <div class="tag-list">
         <span class="tag">production_db (MySQL 8.0)</span>
         <span class="tag">analytics (PostgreSQL 14)</span>

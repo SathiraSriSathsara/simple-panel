@@ -1,29 +1,23 @@
 <?php
-// Websites page
 require_once COMPONENTS_PATH . '/stat-card.php';
-
-$page_title = 'Websites';
-$page_icon = 'fas fa-folder-open';
 ?>
 
-<!-- Stats Grid -->
 <div class="stats-grid">
     <?php
-    render_stat_card('fas fa-globe', 'Total sites', '12');
-    render_stat_card('fas fa-chart-line', 'Traffic (last 24h)', '148k');
-    render_stat_card('fas fa-wordpress', 'CMS installs', '8');
-    render_stat_card('fas fa-shield', 'SSL enabled', '10');
+    render_stat_card('fas fa-globe', t('pages.websites.stat_total_sites'), '12');
+    render_stat_card('fas fa-chart-line', t('pages.websites.stat_traffic'), '148k');
+    render_stat_card('fas fa-wordpress', t('pages.websites.stat_cms'), '8');
+    render_stat_card('fas fa-shield', t('pages.websites.stat_ssl'), '10');
     ?>
 </div>
 
-<!-- Content Card -->
 <div class="content-placeholder">
-    <h3><i class="fas fa-file-code" style="margin-right:10px;"></i>websites overview</h3>
-    <p>example.com, myblog.net, shop.local … 12 entries. Manage your vhosts, php versions, and root directories.</p>
+    <h3><i class="fas fa-file-code" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('pages.websites.overview_title')); ?></h3>
+    <p><?php echo htmlspecialchars(t('pages.websites.overview_text')); ?></p>
     <div class="tag-list">
-        <span class="tag">example.com (php 8.2)</span>
+        <span class="tag">example.com (PHP 8.2)</span>
         <span class="tag">laravel.app (node build)</span>
-        <span class="tag">static.site (html)</span>
-        <span class="tag">wordpress (mysql)</span>
+        <span class="tag">static.site (HTML)</span>
+        <span class="tag">wordpress (MySQL)</span>
     </div>
 </div>
