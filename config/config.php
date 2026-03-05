@@ -29,7 +29,8 @@ $available_pages = [
     'revproxy',
     'databases',
     'domains',
-    'ssl'
+    'ssl',
+    'filemanager'
 ];
 
 // Page configurations
@@ -68,5 +69,10 @@ $page_config = [
         'title' => 'SSL/TLS',
         'icon' => 'fas fa-lock',
         'badge' => '6'
+    ],
+    'filemanager' => [
+        'title' => 'File Manager',
+        'icon' => 'fas fa-folder-tree',
+        'badge' => ''
     ]
 ];

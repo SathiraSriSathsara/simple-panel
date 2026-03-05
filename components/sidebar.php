@@ -65,6 +65,13 @@
                 <span class="badge-float">6</span>
             </a>
         </li>
+
+        <li class="nav-item <?php echo ($current_page === 'filemanager') ? 'active' : ''; ?>">
+            <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'filemanager'])); ?>">
+                <i class="fas fa-folder-tree"></i>
+                <span><?php echo htmlspecialchars(t('File Manager')); ?></span>
+            </a>
+        </li>
     </ul>
 
     <div class="sidebar-footer">

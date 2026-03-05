@@ -41,6 +41,7 @@ The application uses URL parameters for navigation:
 - `http://localhost:8000/?page=databases` - Databases
 - `http://localhost:8000/?page=domains` - Domains
 - `http://localhost:8000/?page=ssl` - SSL/TLS
+- `http://localhost:8000/?page=filemanager` - File Manager
 
 ## ✨ Features
 
@@ -62,5 +63,19 @@ The application uses URL parameters for navigation:
 - **Translation Caching** - Reduces API calls by caching translated text
 
 To switch languages, use the language dropdown in the top bar or add `?lang=si` to the URL.
+
+### 📁 Complete File Manager
+- **File Browsing** - Navigate through directories with breadcrumb navigation
+- **Upload Files** - Drag & drop or click to upload multiple files at once
+- **Download Files** - Download any file with a single click
+- **Create Folders** - Create new directories anywhere in the file system
+- **Delete Files/Folders** - Remove single or multiple items (with confirmation)
+- **Rename** - Rename files and directories
+- **File Information** - View detailed file info including size, type, modified date, and permissions
+- **Search** - Real-time search filter for quick file finding
+- **Multiple Views** - Switch between grid and list view modes
+- **Bulk Selection** - Select multiple files for batch operations
+- **Real-time Progress** - Visual upload progress indicator
+- **Responsive Design** - Works seamlessly on all screen sizes
 
 
