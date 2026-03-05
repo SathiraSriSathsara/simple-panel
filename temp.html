@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Hosting Panel · sidebar</title>
+    <!-- Font Awesome 6 (free) for clean icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #eef2f5;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ========== SIDEBAR ========== */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #0f1a2c 0%, #1a2639 100%);
+            color: #e0e7ff;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            border-right: 1px solid #2d3a5e;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-header {
+            padding: 28px 24px 16px 24px;
+            border-bottom: 1px solid #25344d;
+            margin-bottom: 24px;
+        }
+
+        .sidebar-header h2 {
+            font-weight: 600;
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar-header h2 i {
+            color: #5f9cf8;
+            font-size: 1.9rem;
+        }
+
+        .sidebar-header .badge {
+            background: #2d4b7c;
+            color: #bdd3ff;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 2px 10px;
+            border-radius: 30px;
+            margin-left: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        /* navigation */
+        .nav {
+            flex: 1;
+            padding: 0 16px 20px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .nav-item {
+            list-style: none;
+            border-radius: 14px;
+            transition: background 0.15s;
+        }
+
+        .nav-item a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #b5c9f0;
+            text-decoration: none;
+            border-radius: 14px;
+            transition: all 0.2s;
+        }
+
+        .nav-item a i {
+            width: 24px;
+            font-size: 1.3rem;
+            text-align: center;
+            color: #6086c9;
+        }
+
+        /* active / hover */
+        .nav-item.active a {
+            background: #1f3a68;
+            color: white;
+            box-shadow: 0 6px 12px rgba(0, 20, 40, 0.6);
+        }
+
+        .nav-item.active a i {
+            color: #99c6ff;
+        }
+
+        .nav-item:not(.active):hover a {
+            background: #1b2b45;
+            color: #ecf3ff;
+        }
+
+        .nav-item:not(.active):hover a i {
+            color: #7ca5e0;
+        }
+
+        /* small counters / dummy indicators */
+        .nav-item .badge-float {
+            margin-left: auto;
+            background: #263a5c;
+            color: #b5d1ff;
+            font-size: 0.7rem;
+            padding: 2px 9px;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        .nav-item.active .badge-float {
+            background: #2f5192;
+            color: white;
+        }
+
+        /* section label (optional but neat) */
+        .nav-section-label {
+            padding: 16px 20px 4px 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #60799e;
+            font-weight: 600;
+        }
+
+        /* bottom meta */
+        .sidebar-footer {
+            padding: 24px 20px 28px 20px;
+            border-top: 1px solid #1f3147;
+            font-size: 0.8rem;
+            color: #667eaa;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-footer i {
+            font-size: 1rem;
+            color: #4e74b0;
+        }
+
+        /* ========== MAIN PANEL (preview) ========== */
+        .main-panel {
+            flex: 1;
+            background: #f7fafd;
+            padding: 28px 36px;
+            overflow-y: auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #11223c;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .page-title i {
+            background: #1f3a68;
+            color: white;
+            padding: 10px;
+            border-radius: 16px;
+            font-size: 1.2rem;
+            box-shadow: 0 6px 12px rgba(0,35,70,0.1);
+        }
+
+        .status-chip {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            font-weight: 500;
+            color: #1f3a68;
+            border: 1px solid #d9e3ef;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 22px 20px;
+            border-radius: 26px;
+            box-shadow: 0 10px 20px rgba(0, 20, 40, 0.04);
+            border: 1px solid #eaf0f8;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .stat-icon {
+            background: #e3edfe;
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1f3a68;
+            font-size: 1.8rem;
+        }
+
+        .stat-content h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #64748b;
+        }
+
+        .stat-content .value {
+            font-size: 1.7rem;
+            font-weight: 650;
+            color: #0a1a32;
+            line-height: 1.2;
+        }
+
+        .content-placeholder {
+            background: white;
+            border-radius: 28px;
+            padding: 28px;
+            border: 1px solid #e2ecf9;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+        }
+
+        .content-placeholder h3 {
+            font-weight: 500;
+            color: #152c4b;
+            margin-bottom: 16px;
+            font-size: 1.4rem;
+        }
+
+        .content-placeholder p {
+            color: #4b5f7a;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tag-list {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #ecf3fa;
+            padding: 6px 18px;
+            border-radius: 50px;
+            color: #1a3150;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #d0e0f0;
+        }
+
+        hr {
+            border: 1px solid #deecfb;
+            margin: 28px 0 20px 0;
+        }
+
+        /* active section dummy marker (based on hash or just preview) */
+        .preview-note {
+            background: #ddeeff;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #0a3970;
+            display: inline-block;
+        }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #2d3a5e; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SIDEBAR (exactly as requested: websites, node apps, reverse proxy) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>
+                <img src="./assets/simple-panel-logo-no-bg-white.png" alt="simple-panel-logo" style="width:200px;">
+            </h2>
+        </div>
+
+        <!-- main navigation with the three required items + extra (but we highlight them) -->
+        <ul class="nav">
+            <!-- optional label -->
+            <div class="nav-section-label">applications</div>
+
+            <!-- 1. WEBSITES (active by default to show state) -->
+            <li class="nav-item active" id="nav-websites">
+                <a href="#websites">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Websites</span>
+                    <span class="badge-float">12</span>
+                </a>
+            </li>
+
+            <!-- 2. NODE APPS -->
+            <li class="nav-item" id="nav-nodeapps">
+                <a href="#nodeapps">
+                    <i class="fab fa-node"></i>
+                    <span>Node apps</span>
+                    <span class="badge-float">4</span>
+                </a>
+            </li>
+
+            <!-- 3. REVERSE PROXY -->
+            <li class="nav-item" id="nav-revproxy">
+                <a href="#revproxy">
+                    <i class="fas fa-arrows-spin"></i>
+                    <span>Reverse proxy</span>
+                    <span class="badge-float">7</span>
+                </a>
+            </li>
+
+            <!-- extra separation line + optional items (still consistent) -->
+            <div class="nav-section-label" style="margin-top:12px;">system</div>
+            <li class="nav-item">
+                <a href="#databases">
+                    <i class="fas fa-database"></i>
+                    <span>Databases</span>
+                    <span class="badge-float">3</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#domains">
+                    <i class="fas fa-tag"></i>
+                    <span>Domains</span>
+                    <span class="badge-float">9</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#ssl">
+                    <i class="fas fa-lock"></i>
+                    <span>SSL/TLS</span>
+                    <span class="badge-float">6</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <i class="fas fa-cloud"></i>
+            <span>node active • 2.31 GB / 8 GB</span>
+        </div>
+    </aside>
+
+    <!-- MAIN PANEL (changes based on selected item, static preview for demonstration) -->
+    <main class="main-panel">
+        <div class="top-bar">
+            <div class="page-title">
+                <i class="fas fa-folder-open" id="main-icon"></i>
+                <span id="section-headline">Websites</span>
+            </div>
+            <div class="status-chip">
+                <i class="fas fa-circle" style="color: #32b86d; font-size: 0.6rem;"></i> all systems operational
+            </div>
+        </div>
+
+        <!-- dynamic dummy area: changes based on sidebar click (simulated via simple js) -->
+        <div class="stats-grid" id="statsGrid">
+            <!-- injected by script or default for websites -->
+        </div>
+
+        <div class="content-placeholder" id="contentCard">
+            <!-- dynamic content -->
+        </div>
+
+        <hr>
+        <div class="preview-note">
+            <i class="fas-regular fa-compass"></i> sidebar includes: websites, node apps, reverse proxy (icons & counters)
+        </div>
+    </main>
+
+    <script>
+        (function() {
+            // references
+            const mainIcon = document.getElementById('main-icon');
+            const sectionHeadline = document.getElementById('section-headline');
+            const statsGrid = document.getElementById('statsGrid');
+            const contentCard = document.getElementById('contentCard');
+
+            // get all three main nav items (and we keep only the required ones, but also others exist)
+            const navWebsites = document.getElementById('nav-websites');
+            const navNodeapps = document.getElementById('nav-nodeapps');
+            const navRevproxy = document.getElementById('nav-revproxy');
+
+            // helper to remove active class from all three (and we can keep others but we only manage these three)
+            function removeActiveClass() {
+                navWebsites.classList.remove('active');
+                navNodeapps.classList.remove('active');
+                navRevproxy.classList.remove('active');
+            }
+
+            // --- Websites (default) ---
+            function setWebsitesActive() {
+                removeActiveClass();
+                navWebsites.classList.add('active');
+
+                // update main area
+                mainIcon.className = 'fas fa-folder-open';
+                sectionHeadline.innerText = 'Websites';
+
+                statsGrid.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                        <div class="stat-content">
+                            <h4>Total sites</h4>
+                            <div class="value">12</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="stat-content">
+                            <h4>Traffic (last 24h)</h4>
+                            <div class="value">148k</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-wordpress"></i></div>
+                        <div class="stat-content">
+                            <h4>CMS installs</h4>
+                            <div class="value">8</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-shield"></i></div>
+                        <div class="stat-content">
+                            <h4>SSL enabled</h4>
+                            <div class="value">10</div>
+                        </div>
+                    </div>
+                `;
+
+                contentCard.innerHTML = `
+                    <h3><i class="fas fa-file-code" style="margin-right:10px;"></i>websites overview</h3>
+                    <p>example.com, myblog.net, shop.local … 12 entries. Manage your vhosts, php versions, and root directories.</p>
+                    <div class="tag-list">
+                        <span class="tag">example.com (php 8.2)</span>
+                        <span class="tag">laravel.app (node build)</span>
+                        <span class="tag">static.site (html)</span>
+                        <span class="tag">wordpress (mysql)</span>
+                    </div>
+                `;
+            }
+
+            // --- Node Apps ---
+            function setNodeappsActive() {
+                removeActiveClass();
+                navNodeapps.classList.add('active');
+
+                mainIcon.className = 'fab fa-node';
+                sectionHeadline.innerText = 'Node apps';
+
+                statsGrid.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-cube"></i></div>
+                        <div class="stat-content">
+                            <h4>Node apps</h4>
+                            <div class="value">4</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="stat-content">
+                            <h4>PM2 instances</h4>
+                            <div class="value">7</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-memory"></i></div>
+                        <div class="stat-content">
+                            <h4>Heap usage</h4>
+                            <div class="value">1.2 GB</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-rotate"></i></div>
+                        <div class="stat-content">
+                            <h4>restarts (24h)</h4>
+                            <div class="value">2</div>
+                        </div>
+                    </div>
+                `;
+
+                contentCard.innerHTML = `
+                    <h3><i class="fab fa-node" style="margin-right:10px;"></i>node.js applications</h3>
+                    <p>Express, Next.js, or fastify apps – each with environment variables, process monitoring, and logs.</p>
+                    <div class="tag-list">
+                        <span class="tag">api-server (port 3001)</span>
+                        <span class="tag">dashboard (next, port 3000)</span>
+                        <span class="tag">websocket (port 8080)</span>
+                        <span class="tag">cron-worker</span>
+                    </div>
+                `;
+            }
+
+            // --- Reverse Proxy ---
+            function setRevproxyActive() {
+                removeActiveClass();
+                navRevproxy.classList.add('active');
+
+                mainIcon.className = 'fas fa-arrows-spin';
+                sectionHeadline.innerText = 'Reverse proxy';
+
+                statsGrid.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-arrow-right-arrow-left"></i></div>
+                        <div class="stat-content">
+                            <h4>proxy hosts</h4>
+                            <div class="value">7</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-network-wired"></i></div>
+                        <div class="stat-content">
+                            <h4>upstreams</h4>
+                            <div class="value">12</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-lock-open"></i></div>
+                        <div class="stat-content">
+                            <h4>SSL termination</h4>
+                            <div class="value">5</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                        <div class="stat-content">
+                            <h4>avg response</h4>
+                            <div class="value">143 ms</div>
+                        </div>
+                    </div>
+                `;
+
+                contentCard.innerHTML = `
+                    <h3><i class="fas fa-arrows-spin" style="margin-right:10px;"></i>reverse proxy rules</h3>
+                    <p>NGINX / HAProxy style: route subdomains, path-based, load balancing, websocket support.</p>
+                    <div class="tag-list">
+                        <span class="tag">app.domain.com → local:3000</span>
+                        <span class="tag">api.domain.com → 10.0.0.2:9000</span>
+                        <span class="tag">static → /var/www</span>
+                        <span class="tag">socket → node:8080</span>
+                    </div>
+                `;
+            }
+
+            // attach click listeners (prevent default anchor jump)
+            navWebsites.addEventListener('click', (e) => {
+                e.preventDefault();
+                setWebsitesActive();
+            });
+            navNodeapps.addEventListener('click', (e) => {
+                e.preventDefault();
+                setNodeappsActive();
+            });
+            navRevproxy.addEventListener('click', (e) => {
+                e.preventDefault();
+                setRevproxyActive();
+            });
+
+            // initial load: websites (active)
+            setWebsitesActive();
+
+            // optional: also respond to browser back/forward? ignore for simplicity, but pure front.
+            // ensure other nav items (databases) do not interfere; they have no active toggle but we don't need them.
+            // keep sidebar feeling interactive: we can also remove active from others if those extras clicked.
+            // but spec only wants websites, node apps, reverse proxy, so we ignore extras.
+            // But we can add a tiny extra: if any extra nav link clicked just remove active from three? optionally.
+            const otherNavItems = document.querySelectorAll('.nav-item:not(#nav-websites):not(#nav-nodeapps):not(#nav-revproxy)');
+            otherNavItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // remove active class from our three (just to clean visual)
+                    removeActiveClass();
+                    // change main area to generic placeholder (optional)
+                    mainIcon.className = 'fas fa-cog';
+                    sectionHeadline.innerText = item.querySelector('span')?.innerText || 'System';
+                    statsGrid.innerHTML = `<div style="grid-column:1/-1; background:white; border-radius:30px; padding:28px; color:#445;">⚙️ under construction</div>`;
+                    contentCard.innerHTML = `<p style="padding:18px;">feature preview for ${item.querySelector('span')?.innerText || 'item'}</p>`;
+                });
+            });
+        })();
+    </script>
+    <!-- subtle note: all three items are present and clearly visible in sidebar -->
+</body>
+</html>
