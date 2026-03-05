@@ -78,4 +78,89 @@ To switch languages, use the language dropdown in the top bar or add `?lang=si` 
 - **Real-time Progress** - Visual upload progress indicator
 - **Responsive Design** - Works seamlessly on all screen sizes
 
+### 🗄️ Database Management with phpMyAdmin
+- **Professional Database Admin** - Industry-standard phpMyAdmin interface integrated into the panel
+- **Full Database Control** - Create, modify, drop databases with intuitive interface
+- **Table Management** - Manage database tables with SQL operations
+- **Query Builder** - Execute SQL queries with visual query editor
+- **User Management** - Manage database users and privileges
+- **Data Import/Export** - Import and export data in multiple formats (SQL, CSV, JSON, XML)
+- **Server Monitoring** - Monitor database server status and performance
+- **Backup & Recovery** - Easy database backup and restore functionality
+- **Theme Integration** - Fully styled with panel color scheme for seamless integration
+- **Multi-Server Support** - Configure and manage multiple database connections
+
+#### Setup phpMyAdmin
+
+phpMyAdmin 5.2.1 is included and pre-installed in the `vendor/phpmyadmin/` directory.
+
+**1. Configure Database Connection:**
+
+Edit the phpMyAdmin configuration file:
+```
+vendor/phpmyadmin/config.inc.php
+```
+
+Update the server settings:
+```php
+$cfg['Servers'][1]['host'] = 'localhost';        // Database server address
+$cfg['Servers'][1]['port'] = 3306;               // Database port (3306 for MySQL)
+$cfg['Servers'][1]['username'] = 'root';         // Database username
+$cfg['Servers'][1]['password'] = 'password';     // Database password (if needed)
+$cfg['Servers'][1]['auth_type'] = 'cookie';      // Authentication type
+```
+
+**2. Change Blowfish Secret (Security):**
+
+Generate a new random 32-character string and update:
+```php
+$cfg['blowfish_secret'] = 'your-random-32-char-string-here';
+```
+
+**3. Access phpMyAdmin:**
+
+Navigate to the Databases page in your panel:
+```
+http://localhost:8000/?page=databases
+```
+
+Or access directly:
+```
+http://localhost:8000/vendor/phpmyadmin/index.php
+```
+
+**4. Configure Additional Database Servers (Optional):**
+
+To manage multiple database servers, add more configurations:
+```php
+// PostgreSQL Server
+$cfg['Servers'][2]['host'] = 'postgres.example.com';
+$cfg['Servers'][2]['port'] = 5432;
+$cfg['Servers'][2]['extension'] = 'pgsql';
+$cfg['Servers'][2]['auth_type'] = 'cookie';
+$cfg['Servers'][2]['verbose'] = 'PostgreSQL Server';
+
+// MySQL Remote Server
+$cfg['Servers'][3]['host'] = 'mysql.example.com';
+$cfg['Servers'][3]['port'] = 3306;
+$cfg['Servers'][3]['auth_type'] = 'cookie';
+$cfg['Servers'][3]['verbose'] = 'Remote MySQL';
+```
+
+**5. Security Recommendations:**
+
+- ⚠️ Always use HTTPS in production environments
+- 🔐 Use strong database passwords
+- 👥 Avoid using root accounts for regular operations
+- 📋 Restrict IP access to phpMyAdmin using `.htaccess` or firewall rules
+- 🔄 Regularly backup your databases
+- 🛡️ Keep phpMyAdmin updated to the latest version
+
+**6. Complete Documentation:**
+
+For detailed configuration options and advanced features, refer to:
+- `PHPMYADMIN_SETUP.md` - Complete setup and configuration guide
+- `PHPMYADMIN_QUICKSTART.md` - Quick reference for common tasks
+- Official phpMyAdmin Docs: https://docs.phpmyadmin.net/
+
 
