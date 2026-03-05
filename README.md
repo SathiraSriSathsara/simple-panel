@@ -33,12 +33,27 @@ http://localhost:8000
 
 The application uses URL parameters for navigation:
 
-- `http://localhost:8000/` - Default page (Websites)
+- `http://localhost:8000/` - Default page (Dashboard)
+- `http://localhost:8000/?page=dashboard` - Dashboard (Server Monitoring)
 - `http://localhost:8000/?page=websites` - Websites
 - `http://localhost:8000/?page=nodeapps` - Node Apps
 - `http://localhost:8000/?page=revproxy` - Reverse Proxy
 - `http://localhost:8000/?page=databases` - Databases
 - `http://localhost:8000/?page=domains` - Domains
 - `http://localhost:8000/?page=ssl` - SSL/TLS
+
+## ✨ Features
+
+### 📊 Real-time Dashboard
+- **CPU Usage Monitoring** - Live CPU utilization with color-coded progress bars
+- **RAM Usage** - Memory consumption tracking with used/total display
+- **Disk Usage** - Storage usage monitoring
+- **Network Stats** - Network traffic monitoring (received/sent)
+- **Server Information** - Hostname, OS, uptime, and load average
+- **Auto-refresh** - Dashboard updates automatically every 3 seconds
+
+### 🌐 Multi-language Support
+- English, Spanish, Russian, and Sinhala translations
+- Easy language switching
 
 

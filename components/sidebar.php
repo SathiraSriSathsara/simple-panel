@@ -7,7 +7,14 @@
     </div>
 
     <ul class="nav">
-        <div class="nav-section-label"><?php echo htmlspecialchars(t('nav.applications')); ?></div>
+        <li class="nav-item <?php echo ($current_page === 'dashboard') ? 'active' : ''; ?>">
+            <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'dashboard'])); ?>">
+                <i class="fas fa-tachometer-alt"></i>
+                <span><?php echo htmlspecialchars(t('nav.dashboard')); ?></span>
+            </a>
+        </li>
+
+        <div class="nav-section-label" style="margin-top:12px;"><?php echo htmlspecialchars(t('nav.applications')); ?></div>
 
         <li class="nav-item <?php echo ($current_page === 'websites') ? 'active' : ''; ?>">
             <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'websites'])); ?>">

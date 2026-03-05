@@ -22,6 +22,7 @@ $translations = [
             'node_status' => 'node active - 2.31 GB / 8 GB',
         ],
         'nav' => [
+            'dashboard' => 'Dashboard',
             'applications' => 'Applications',
             'system' => 'System',
             'websites' => 'Websites',
@@ -32,6 +33,18 @@ $translations = [
             'ssl' => 'SSL/TLS',
         ],
         'pages' => [
+            'dashboard' => [
+                'title' => 'Dashboard',
+                'cpu_usage' => 'CPU Usage',
+                'ram_usage' => 'RAM Usage',
+                'disk_usage' => 'Disk Usage',
+                'network_usage' => 'Network Usage',
+                'server_info' => 'Server Information',
+                'hostname' => 'Hostname',
+                'os' => 'Operating System',
+                'uptime' => 'Uptime',
+                'load_average' => 'Load Average',
+            ],
             'websites' => [
                 'title' => 'Websites',
                 'stat_total_sites' => 'Total sites',
@@ -100,6 +113,7 @@ $translations = [
             'node_status' => 'nodo activo - 2.31 GB / 8 GB',
         ],
         'nav' => [
+            'dashboard' => 'Panel',
             'applications' => 'Aplicaciones',
             'system' => 'Sistema',
             'websites' => 'Sitios web',
@@ -110,6 +124,18 @@ $translations = [
             'ssl' => 'SSL/TLS',
         ],
         'pages' => [
+            'dashboard' => [
+                'title' => 'Panel',
+                'cpu_usage' => 'Uso de CPU',
+                'ram_usage' => 'Uso de RAM',
+                'disk_usage' => 'Uso de disco',
+                'network_usage' => 'Uso de red',
+                'server_info' => 'Información del servidor',
+                'hostname' => 'Nombre de host',
+                'os' => 'Sistema operativo',
+                'uptime' => 'Tiempo activo',
+                'load_average' => 'Carga promedio',
+            ],
             'websites' => [
                 'title' => 'Sitios web',
                 'stat_total_sites' => 'Sitios totales',
@@ -178,6 +204,7 @@ $translations = [
             'node_status' => 'узел активен - 2.31 ГБ / 8 ГБ',
         ],
         'nav' => [
+            'dashboard' => 'Панель',
             'applications' => 'Приложения',
             'system' => 'Система',
             'websites' => 'Сайты',
@@ -188,6 +215,18 @@ $translations = [
             'ssl' => 'SSL/TLS',
         ],
         'pages' => [
+            'dashboard' => [
+                'title' => 'Панель',
+                'cpu_usage' => 'Использование ЦП',
+                'ram_usage' => 'Использование RAM',
+                'disk_usage' => 'Использование диска',
+                'network_usage' => 'Использование сети',
+                'server_info' => 'Информация о сервере',
+                'hostname' => 'Имя хоста',
+                'os' => 'Операционная система',
+                'uptime' => 'Время работы',
+                'load_average' => 'Средняя нагрузка',
+            ],
             'websites' => [
                 'title' => 'Сайты',
                 'stat_total_sites' => 'Всего сайтов',
@@ -256,6 +295,7 @@ $translations = [
             'node_status' => 'node සක්‍රියයි - 2.31 GB / 8 GB',
         ],
         'nav' => [
+            'dashboard' => 'ඩෑෂ්බෝඩ්',
             'applications' => 'යෙදුම්',
             'system' => 'පද්ධතිය',
             'websites' => 'වෙබ් අඩවි',
@@ -266,6 +306,18 @@ $translations = [
             'ssl' => 'SSL/TLS',
         ],
         'pages' => [
+            'dashboard' => [
+                'title' => 'ඩෑෂ්බෝඩ්',
+                'cpu_usage' => 'CPU භාවිතය',
+                'ram_usage' => 'RAM භාවිතය',
+                'disk_usage' => 'තැටි භාවිතය',
+                'network_usage' => 'ජාල භාවිතය',
+                'server_info' => 'සේවාදායක තොරතුරු',
+                'hostname' => 'හොස්ට් නාමය',
+                'os' => 'මෙහෙයුම් පද්ධතිය',
+                'uptime' => 'ක්‍රියාකාල කාලය',
+                'load_average' => 'සාමාන්‍ය බර',
+            ],
             'websites' => [
                 'title' => 'වෙබ් අඩවි',
                 'stat_total_sites' => 'මුළු අඩවි',

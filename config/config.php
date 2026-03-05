@@ -19,10 +19,11 @@ require_once __DIR__ . '/i18n.php';
 $current_language = get_current_language();
 
 // Default page
-define('DEFAULT_PAGE', 'websites');
+define('DEFAULT_PAGE', 'dashboard');
 
 // Available pages
 $available_pages = [
+    'dashboard',
     'websites',
     'nodeapps',
     'revproxy',
@@ -33,6 +34,11 @@ $available_pages = [
 
 // Page configurations
 $page_config = [
+    'dashboard' => [
+        'title_key' => 'pages.dashboard.title',
+        'icon' => 'fas fa-tachometer-alt',
+        'badge' => ''
+    ],
     'websites' => [
         'title_key' => 'pages.websites.title',
         'icon' => 'fas fa-folder-open',
