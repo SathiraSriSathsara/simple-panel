@@ -1,6 +1,6 @@
 <div align="center">
 
-![logo](./assets/images/simple-panel-logo-no-bg-white.png)
+<img src="./assets/images/simple-panel-logo-no-bg-white.png" alt="logo" width="200px">
 
 **Fast. Simple. Powerful Hosting Control.**
 
