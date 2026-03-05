@@ -35,37 +35,37 @@ $available_pages = [
 // Page configurations
 $page_config = [
     'dashboard' => [
-        'title_key' => 'pages.dashboard.title',
+        'title' => 'Dashboard',
         'icon' => 'fas fa-tachometer-alt',
         'badge' => ''
     ],
     'websites' => [
-        'title_key' => 'pages.websites.title',
+        'title' => 'Websites',
         'icon' => 'fas fa-folder-open',
         'badge' => '12'
     ],
     'nodeapps' => [
-        'title_key' => 'pages.nodeapps.title',
+        'title' => 'Node Apps',
         'icon' => 'fab fa-node',
         'badge' => '4'
     ],
     'revproxy' => [
-        'title_key' => 'pages.revproxy.title',
+        'title' => 'Reverse Proxy',
         'icon' => 'fas fa-arrows-spin',
         'badge' => '7'
     ],
     'databases' => [
-        'title_key' => 'pages.databases.title',
+        'title' => 'Databases',
         'icon' => 'fas fa-database',
         'badge' => '3'
     ],
     'domains' => [
-        'title_key' => 'pages.domains.title',
+        'title' => 'Domains',
         'icon' => 'fas fa-tag',
         'badge' => '9'
     ],
     'ssl' => [
-        'title_key' => 'pages.ssl.title',
+        'title' => 'SSL/TLS',
         'icon' => 'fas fa-lock',
         'badge' => '6'
     ]

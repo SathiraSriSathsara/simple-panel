@@ -4,16 +4,16 @@ require_once COMPONENTS_PATH . '/stat-card.php';
 
 <div class="stats-grid">
     <?php
-    render_stat_card('fas fa-cube', t('pages.nodeapps.stat_apps'), '4');
-    render_stat_card('fas fa-rocket', t('pages.nodeapps.stat_pm2'), '7');
-    render_stat_card('fas fa-memory', t('pages.nodeapps.stat_heap'), '1.2 GB');
-    render_stat_card('fas fa-rotate', t('pages.nodeapps.stat_restarts'), '2');
+    render_stat_card('fas fa-cube', t('Node apps'), '4');
+    render_stat_card('fas fa-rocket', t('PM2 instances'), '7');
+    render_stat_card('fas fa-memory', t('Heap usage'), '1.2 GB');
+    render_stat_card('fas fa-rotate', t('Restarts (24h)'), '2');
     ?>
 </div>
 
 <div class="content-placeholder">
-    <h3><i class="fab fa-node" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('pages.nodeapps.overview_title')); ?></h3>
-    <p><?php echo htmlspecialchars(t('pages.nodeapps.overview_text')); ?></p>
+    <h3><i class="fab fa-node" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('Node.js applications')); ?></h3>
+    <p><?php echo htmlspecialchars(t('Express, Next.js, or Fastify apps - each with environment variables, process monitoring, and logs.')); ?></p>
     <div class="tag-list">
         <span class="tag">api-server (port 3001)</span>
         <span class="tag">dashboard (Next.js, port 3000)</span>

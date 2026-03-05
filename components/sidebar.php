@@ -10,16 +10,16 @@
         <li class="nav-item <?php echo ($current_page === 'dashboard') ? 'active' : ''; ?>">
             <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'dashboard'])); ?>">
                 <i class="fas fa-tachometer-alt"></i>
-                <span><?php echo htmlspecialchars(t('nav.dashboard')); ?></span>
+                <span><?php echo htmlspecialchars(t('Dashboard')); ?></span>
             </a>
         </li>
 
-        <div class="nav-section-label" style="margin-top:12px;"><?php echo htmlspecialchars(t('nav.applications')); ?></div>
+        <div class="nav-section-label" style="margin-top:12px;"><?php echo htmlspecialchars(t('Applications')); ?></div>
 
         <li class="nav-item <?php echo ($current_page === 'websites') ? 'active' : ''; ?>">
             <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'websites'])); ?>">
                 <i class="fas fa-folder-open"></i>
-                <span><?php echo htmlspecialchars(t('nav.websites')); ?></span>
+                <span><?php echo htmlspecialchars(t('Websites')); ?></span>
                 <span class="badge-float">12</span>
             </a>
         </li>
@@ -27,7 +27,7 @@
         <li class="nav-item <?php echo ($current_page === 'nodeapps') ? 'active' : ''; ?>">
             <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'nodeapps'])); ?>">
                 <i class="fab fa-node"></i>
-                <span><?php echo htmlspecialchars(t('nav.nodeapps')); ?></span>
+                <span><?php echo htmlspecialchars(t('Node Apps')); ?></span>
                 <span class="badge-float">4</span>
             </a>
         </li>
@@ -35,17 +35,17 @@
         <li class="nav-item <?php echo ($current_page === 'revproxy') ? 'active' : ''; ?>">
             <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'revproxy'])); ?>">
                 <i class="fas fa-arrows-spin"></i>
-                <span><?php echo htmlspecialchars(t('nav.revproxy')); ?></span>
+                <span><?php echo htmlspecialchars(t('Reverse Proxy')); ?></span>
                 <span class="badge-float">7</span>
             </a>
         </li>
 
-        <div class="nav-section-label" style="margin-top:12px;"><?php echo htmlspecialchars(t('nav.system')); ?></div>
+        <div class="nav-section-label" style="margin-top:12px;"><?php echo htmlspecialchars(t('System')); ?></div>
 
         <li class="nav-item <?php echo ($current_page === 'databases') ? 'active' : ''; ?>">
             <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'databases'])); ?>">
                 <i class="fas fa-database"></i>
-                <span><?php echo htmlspecialchars(t('nav.databases')); ?></span>
+                <span><?php echo htmlspecialchars(t('Databases')); ?></span>
                 <span class="badge-float">3</span>
             </a>
         </li>
@@ -53,7 +53,7 @@
         <li class="nav-item <?php echo ($current_page === 'domains') ? 'active' : ''; ?>">
             <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'domains'])); ?>">
                 <i class="fas fa-tag"></i>
-                <span><?php echo htmlspecialchars(t('nav.domains')); ?></span>
+                <span><?php echo htmlspecialchars(t('Domains')); ?></span>
                 <span class="badge-float">9</span>
             </a>
         </li>
@@ -61,7 +61,7 @@
         <li class="nav-item <?php echo ($current_page === 'ssl') ? 'active' : ''; ?>">
             <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'ssl'])); ?>">
                 <i class="fas fa-lock"></i>
-                <span><?php echo htmlspecialchars(t('nav.ssl')); ?></span>
+                <span><?php echo htmlspecialchars(t('SSL/TLS')); ?></span>
                 <span class="badge-float">6</span>
             </a>
         </li>

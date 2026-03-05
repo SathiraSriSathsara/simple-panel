@@ -7,8 +7,7 @@ if (!in_array($current_page, $available_pages, true)) {
     $current_page = DEFAULT_PAGE;
 }
 
-$page_title_key = $page_config[$current_page]['title_key'] ?? '';
-$page_title = $page_title_key !== '' ? t($page_title_key) : t('common.dashboard');
+$page_title = $page_config[$current_page]['title'] ?? 'Dashboard';
 $page_icon = $page_config[$current_page]['icon'] ?? 'fas fa-cog';
 
 require_once INCLUDES_PATH . '/header.php';
@@ -25,15 +24,15 @@ require_once INCLUDES_PATH . '/header.php';
         require_once $page_file;
     } else {
         echo '<div class="content-placeholder">';
-        echo '<h3>' . htmlspecialchars(t('common.page_not_found')) . '</h3>';
-        echo '<p>' . htmlspecialchars(t('common.page_not_found_text')) . '</p>';
+        echo '<h3>' . htmlspecialchars(t('Page not found')) . '</h3>';
+        echo '<p>' . htmlspecialchars(t('The requested page does not exist.')) . '</p>';
         echo '</div>';
     }
     ?>
 
     <hr>
     <div class="preview-note">
-        <i class="fas fa-compass"></i> <?php echo htmlspecialchars(t('common.preview_note')); ?>
+        <i class="fas fa-compass"></i> <?php echo htmlspecialchars(t('Sidebar includes: websites, node apps, reverse proxy (icons and counters)')); ?>
     </div>
 </main>
 

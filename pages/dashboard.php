@@ -8,7 +8,7 @@ require_once COMPONENTS_PATH . '/stat-card.php';
             <i class="fas fa-microchip"></i>
         </div>
         <div class="stat-content">
-            <h4><?php echo htmlspecialchars(t('pages.dashboard.cpu_usage')); ?></h4>
+            <h4><?php echo htmlspecialchars(t('CPU Usage')); ?></h4>
             <div class="value" id="cpu-value">--</div>
         </div>
         <div class="stat-progress">
@@ -21,7 +21,7 @@ require_once COMPONENTS_PATH . '/stat-card.php';
             <i class="fas fa-memory"></i>
         </div>
         <div class="stat-content">
-            <h4><?php echo htmlspecialchars(t('pages.dashboard.ram_usage')); ?></h4>
+            <h4><?php echo htmlspecialchars(t('RAM Usage')); ?></h4>
             <div class="value" id="ram-value">--</div>
         </div>
         <div class="stat-progress">
@@ -34,7 +34,7 @@ require_once COMPONENTS_PATH . '/stat-card.php';
             <i class="fas fa-hard-drive"></i>
         </div>
         <div class="stat-content">
-            <h4><?php echo htmlspecialchars(t('pages.dashboard.disk_usage')); ?></h4>
+            <h4><?php echo htmlspecialchars(t('Disk Usage')); ?></h4>
             <div class="value" id="disk-value">--</div>
         </div>
         <div class="stat-progress">
@@ -47,7 +47,7 @@ require_once COMPONENTS_PATH . '/stat-card.php';
             <i class="fas fa-network-wired"></i>
         </div>
         <div class="stat-content">
-            <h4><?php echo htmlspecialchars(t('pages.dashboard.network_usage')); ?></h4>
+            <h4><?php echo htmlspecialchars(t('Network Usage')); ?></h4>
             <div class="value" id="network-value">--</div>
         </div>
     </div>
@@ -56,38 +56,38 @@ require_once COMPONENTS_PATH . '/stat-card.php';
 <!-- Usage Graphs -->
 <div class="graphs-section">
     <div class="graph-card">
-        <h3><i class="fas fa-chart-line" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('pages.dashboard.cpu_usage')); ?> - Real-time</h3>
+        <h3><i class="fas fa-chart-line" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('CPU Usage')); ?> - Real-time</h3>
         <canvas id="cpu-chart"></canvas>
     </div>
 
     <div class="graph-card">
-        <h3><i class="fas fa-chart-area" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('pages.dashboard.ram_usage')); ?> - Real-time</h3>
+        <h3><i class="fas fa-chart-area" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('RAM Usage')); ?> - Real-time</h3>
         <canvas id="ram-chart"></canvas>
     </div>
 
     <div class="graph-card">
-        <h3><i class="fas fa-chart-bar" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('pages.dashboard.disk_usage')); ?></h3>
+        <h3><i class="fas fa-chart-bar" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('Disk Usage')); ?></h3>
         <canvas id="disk-chart"></canvas>
     </div>
 </div>
 
 <div class="content-placeholder">
-    <h3><i class="fas fa-server" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('pages.dashboard.server_info')); ?></h3>
+    <h3><i class="fas fa-server" style="margin-right:10px;"></i><?php echo htmlspecialchars(t('Server Information')); ?></h3>
     <div class="server-info-grid">
         <div class="info-item">
-            <strong><?php echo htmlspecialchars(t('pages.dashboard.hostname')); ?>:</strong>
+            <strong><?php echo htmlspecialchars(t('Hostname')); ?>:</strong>
             <span id="hostname">--</span>
         </div>
         <div class="info-item">
-            <strong><?php echo htmlspecialchars(t('pages.dashboard.os')); ?>:</strong>
+            <strong><?php echo htmlspecialchars(t('Operating System')); ?>:</strong>
             <span id="os">--</span>
         </div>
         <div class="info-item">
-            <strong><?php echo htmlspecialchars(t('pages.dashboard.uptime')); ?>:</strong>
+            <strong><?php echo htmlspecialchars(t('Uptime')); ?>:</strong>
             <span id="uptime">--</span>
         </div>
         <div class="info-item">
-            <strong><?php echo htmlspecialchars(t('pages.dashboard.load_average')); ?>:</strong>
+            <strong><?php echo htmlspecialchars(t('Load Average')); ?>:</strong>
             <span id="load-average">--</span>
         </div>
     </div>
