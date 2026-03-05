@@ -34,7 +34,7 @@
 
         <li class="nav-item <?php echo ($current_page === 'revproxy') ? 'active' : ''; ?>">
             <a href="<?php echo htmlspecialchars(url_with_lang(['page' => 'revproxy'])); ?>">
-                <i class="fas fa-arrows-spin"></i>
+                <i class="fas fa-random"></i>
                 <span><?php echo htmlspecialchars(t('Reverse Proxy')); ?></span>
                 <span class="badge-float">7</span>
             </a>

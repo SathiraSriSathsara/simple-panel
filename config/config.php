@@ -52,7 +52,7 @@ $page_config = [
     ],
     'revproxy' => [
         'title' => 'Reverse Proxy',
-        'icon' => 'fas fa-arrows-spin',
+        'icon' => 'fas fa-random',
         'badge' => '7'
     ],
     'databases' => [
