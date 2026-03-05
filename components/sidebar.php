@@ -68,7 +68,99 @@
     </ul>
 
     <div class="sidebar-footer">
-        <i class="fas fa-cloud"></i>
-        <span>Storage • 2.31 GB / 8 GB</span>
+        <div class="storage-info">
+            <div class="storage-header">
+                <i class="fas fa-hard-drive"></i>
+                <span id="sidebar-storage-text">Loading...</span>
+            </div>
+            <div class="storage-bar">
+                <div class="storage-bar-fill" id="sidebar-storage-bar" style="width: 0%"></div>
+            </div>
+        </div>
     </div>
 </aside>
+
+<script>
+// Fetch and update sidebar storage info
+function updateSidebarStorage() {
+    fetch('<?php echo BASE_URL; ?>api/server-stats.php')
+        .then(response => response.json())
+        .then(data => {
+            const storageText = data.disk.used + ' / ' + data.disk.total;
+            const percentage = data.disk.percentage;
+            
+            document.getElementById('sidebar-storage-text').textContent = 'Storage • ' + storageText;
+            document.getElementById('sidebar-storage-bar').style.width = percentage + '%';
+            
+            // Color code the bar based on usage
+            const bar = document.getElementById('sidebar-storage-bar');
+            bar.classList.remove('low', 'medium', 'high');
+            if (percentage < 60) {
+                bar.classList.add('low');
+            } else if (percentage < 85) {
+                bar.classList.add('medium');
+            } else {
+                bar.classList.add('high');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching storage info:', error);
+        });
+}
+
+// Update immediately and then every 10 seconds
+updateSidebarStorage();
+setInterval(updateSidebarStorage, 10000);
+</script>
+
+<style>
+.sidebar-footer {
+    padding: 15px 20px;
+    margin-top: auto;
+}
+
+.storage-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.storage-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85em;
+    color: var(--text-secondary);
+}
+
+.storage-header i {
+    font-size: 1em;
+}
+
+.storage-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.storage-bar-fill {
+    height: 100%;
+    background: var(--accent-color);
+    transition: width 0.5s ease, background-color 0.3s ease;
+    border-radius: 3px;
+}
+
+.storage-bar-fill.low {
+    background: #4CAF50;
+}
+
+.storage-bar-fill.medium {
+    background: #FF9800;
+}
+
+.storage-bar-fill.high {
+    background: #f44336;
+}
+</style>
