@@ -62,6 +62,6 @@
 
     <div class="sidebar-footer">
         <i class="fas fa-cloud"></i>
-        <span><?php echo htmlspecialchars(t('common.node_status')); ?></span>
+        <span>Storage • 2.31 GB / 8 GB</span>
     </div>
 </aside>
